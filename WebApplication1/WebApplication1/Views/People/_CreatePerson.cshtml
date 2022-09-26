@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<h3>Create Person</h3>
+<form asp-action="Create" method="post">
+    <label>Person Name</label>
+    <input type="text" name="PersonName" />
+    <label>Phone Number</label>
+    <input type="tel" name="PersonPhoneNumber" />
+    <label>City</label>
+    <select  name="CityId" asp-items="ViewBag.Cities"></select>
+    <input type="submit" />
+
+</form>

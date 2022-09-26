@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860   
+*@
+
+@{
+PeopleViewModel pwm = new PeopleViewModel();
+}
+
+@using WebApplication1.Models.People
+
+
+<form asp-action="Index" method="post">
+    <label>Search</label>
+    <input type="text" name="searchTerm" />
+    <input type="submit" />
+</form>
+
+<partial name="_CreatePerson.cshtml" />
+
+<p>@TempData["Message"]</p>
+<h3>People Index</h3>
+<partial name="_Person.cshtml" model="@Model" />
+
+

@@ -1,0 +1,33 @@
+﻿@using WebApplication1.Models
+@using WebApplication1.Models.People
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>City Index</h3>
+<a asp-action="CreateCity">Create City</a>
+<p>@TempData["Message"]</p>
+@foreach(City c in Model) {
+    <div>
+        @if(c.Country != null)
+        {
+            <p>Country: @c.Country.Name</p>
+        } else
+        {
+            <p>Country: N/A</p>
+        }
+        <p>Name: @c.Name</p>
+        <p>ID: @c.Id</p>
+        <p>People: </p>
+        <ul>
+            @foreach(Person p in c.People)
+            {
+            <li>@p.Name <a asp-controller="People" asp-action="Edit" asp-route-id="@p.Id">Edit Person</a></li>   
+            }
+        </ul>
+        <a asp-action="Edit" asp-route-id="@c.Id">Edit City</a>
+        <a asp-action="DeleteCity" asp-route-CityId="@c.Id">Nuke City (Kills Inhabitants)</a>
+        <hr/>
+    </div>
+}

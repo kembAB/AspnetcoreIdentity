@@ -1,0 +1,73 @@
+﻿@using WebApplication1.Models
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/media/css/main.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="wrapper">
+        <header class="main-nav">
+            <img src="/media/Skull.png" alt="Website Logo"/>
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Index</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" , asp-action="About">About</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" , asp-action="Projects">Projects</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" , asp-action="Contact">Contact</a>
+                </li>
+                <li>
+                    <a asp-controller="Doctor" , asp-action="FeverCheck">Temperature Check</a>
+                </li>
+                <li>
+                    <a asp-controller="Games" , asp-action="NumberGuesser">Guessing Game</a>
+                </li>
+                <li>
+                    <a asp-controller="AJAX" , asp-action="Index">AJAX</a>
+                </li>
+                @if (User.IsInRole(AccountTypes.Standard) || User.IsInRole(AccountTypes.Administrator))
+                {
+                 
+                <li>
+                    <a asp-controller="People" , asp-action="Index">People Index</a>
+                </li>
+                
+                
+                }
+                @if(User.IsInRole(AccountTypes.Administrator))
+                {
+                <li>
+                    <a asp-controller="City" , asp-action="Index">City Index</a>
+                </li>
+                <li>
+                    <a asp-controller="Country" , asp-action="Index">Country Index</a>
+                </li>
+                <li>
+                    <a asp-controller="Language" , asp-action="Index">Language Index</a>
+                </li>
+                <li>
+                    <a asp-controller="Admin", asp-action="Index">Admin</a>
+                </li>
+                }
+
+            </ul>
+            <partial name="_LoginPartial" />
+        </header>
+        @RenderBody()
+        
+        <footer>
+            <p>&copy; Benjamin Nordin @DateTime.Now.ToString("yy-MM-dd")</p>
+        </footer>
+    </div>
+
+    @RenderSection("Scripts", required: false);
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+@model WebApplication1.Models.City
+
+<h1>Edit @Model.Name</h1>
+
+<form action="Edit" method="post">
+    <input asp-for="Id" type="number" value="@Model.Id" hidden/>
+
+
+    <div class="form-element">
+        <label>Name: </label>
+        <input asp-for="Name" type="text" value="@Model.Name"/>
+    
+    </div>
+    <div class="form-element">
+        <label>Country: </label>
+        <select asp-for="CountryId" asp-items="@ViewBag.Countries" value="@Model.CountryId"></select>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>
+

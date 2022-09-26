@@ -1,0 +1,24 @@
+﻿@using WebApplication1.Models.Languages
+@using WebApplication1.Models.People;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>Language Index</h3>
+<p>@TempData["Message"]</p>
+<a asp-action="Create">Create Language</a>
+<a asp-action="Assign">Assign Language</a>
+@foreach(Language l in Model) {
+    <p>@l.Id</p>
+    <p>@l.Name</p>
+    <p>People: </p>
+    <ul>
+        @foreach(var o in l.People) {
+        <li>@o.Person.Name <a asp-action="Unassign" asp-route-personId="@o.Person.Id" asp-route-languageId="@l.Id">Unassign Person</a></li>
+        }
+    </ul>
+    <a asp-action="Delete" asp-route-languageId="@l.Id">Delete Language</a>
+    <hr />
+}

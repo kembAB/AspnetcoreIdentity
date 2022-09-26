@@ -1,0 +1,23 @@
+﻿@using WebApplication1.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>Country Index</h3>
+<a asp-action="CreateCountry">Create Country</a>
+<p>@TempData["Message"]</p>
+
+@foreach(Country country in Model) {
+    <p>Country Name: @country.Name</p>
+    <p>Country ID: @country.Id</p>
+    <p>Cities: </p>
+    <ul>
+        @foreach(City city in country.Cities) {
+            <li>@city.Name - <a asp-action="Edit" asp-controller="City" asp-route-id="@city.Id">Edit City</a></li>
+        }
+    </ul>
+    <a asp-action="Edit" asp-route-id="@country.Id">Edit Country</a>
+    <a asp-action="DeleteCountry" asp-route-CountryId="@country.Id">Nuke Country (Kills Inhabitants of any city within it's borders)</a>
+    <hr />
+}

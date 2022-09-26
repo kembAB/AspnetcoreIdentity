@@ -1,0 +1,47 @@
+﻿@using WebApplication1.Models.Languages
+@using WebApplication1.Models.People
+
+    @{
+        PeopleViewModel pwm = new PeopleViewModel();
+        foreach (Person p in Model)
+        {
+
+
+    <div class="row">
+                    <p>Name: @p.Name</p>
+                    <p>Phone Number: @p.PhoneNumber</p>
+                @{
+                if(p.PersonCity == null)
+                {
+                            <p>City: N/A</p>
+                } else
+                {
+                            <p>City: @p.PersonCity.Name</p>
+                    
+                }
+                }
+                <p>Languages:</p>
+                <ul>
+                    @foreach(var o in p.LanguagesLinkObject)
+                {
+                        <li>@o.Language.Name -  <a asp-controller="Language" asp-action="Unassign" asp-route-personId="@p.Id" asp-route-languageId="@o.LanguageId"> Unassign Language</a></li>
+                }
+                
+                </ul>
+                
+                    <p>ID: @p.Id</p>
+                    <div class="object-actions">
+                    <a asp-action="Edit" asp-route-id="@p.Id">Edit Person</a>
+                    <a asp-controller="Language" asp-action="Assign" asp-route-id="@p.Id">Assign Language</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-personId="@p.Id">Delete Person</a>
+                    
+                }
+
+                    </div>
+                    <hr/>
+    </div>            
+            }
+            }
+            

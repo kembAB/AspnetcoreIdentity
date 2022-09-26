@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>Roles</h3>
+<p>@TempData["Message"]</p>
+<a asp-action="CreateRole">Create Role</a> || <a asp-action="AssignRole">Assign Role to User</a>
+@foreach(var o in Model) {
+    <div class="faux-table">
+       <p>@o.Name</p>
+       <p>||</p>
+        <p>@o.Id</p>
+    </div>
+}

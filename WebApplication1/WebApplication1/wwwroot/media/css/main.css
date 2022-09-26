@@ -1,0 +1,58 @@
+.wrapper {
+    max-width: 1280px;
+    margin: auto;
+    font-family: Consolas, serif;
+}
+.project h1{
+    font-size: 1.25em;
+}
+.main-nav {
+    display: flex;
+    justify-items: center;
+}
+
+.main-nav img {
+    width: 50px;
+    height: 50px;
+}
+.main-nav > ul {
+    justify-content: center;
+    word-spacing: -0.25rem;
+}
+.main-nav > ul > li {
+    display: inline-block;
+}
+.main-nav > ul > li > a {
+    color: #2a2a2a;
+    text-decoration: none;
+    padding:0.5rem;
+}
+
+    header ul li a:hover {
+        color: white;
+        background-color:cadetblue;
+        border-radius: 0rem;
+
+    }
+.main-nav > .navbar-nav {
+    float: right;
+}
+
+
+.projects-container {
+    max-width: 95%;
+    margin: auto;
+}
+.project {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.faux-table {
+    max-width: 700px;
+    margin: auto;
+}
+
+.faux-table p{
+    display: inline;
+}

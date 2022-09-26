@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<h1>Number Guesser</h1>
+<p>I've picked a number between 1, 100, try to guess it</p>
+
+@if(ViewBag.Message != null)
+            {
+                <p>@ViewBag.Message</p>
+            }
+
+<form asp-action="NumberGuesser" method="post">
+    <label>Guess A Number</label>
+    <input type="number" name="GuessedNumber"/>
+    <input type="submit" name="Submit" />
+</form>
